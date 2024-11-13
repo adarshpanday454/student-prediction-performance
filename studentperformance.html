@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Performance Prediction</title>
+    <link rel="stylesheet" href="studentperformance.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Student Performance Prediction</h1>
+        <form id="studentForm">
+            <label for="attendance">Attendance (%)</label>
+            <input type="number" id="attendance" name="attendance" min="0" max="100" required>
+
+            <label for="assignments">Assignments Completed (%)</label>
+            <input type="number" id="assignments" name="assignments" min="0" max="100" required>
+
+            <label for="studyHours">Average Study Hours Per Week</label>
+            <input type="number" id="studyHours" name="studyHours" required>
+
+            <button type="button" onclick="predictPerformance()">Predict Performance</button>
+        </form>
+        <div id="predictionResult"></div>
+    </div>
+    <script src="studentperformance.js"></script>
+</body>
+</html>
+
+    
+</body>
+</html>
