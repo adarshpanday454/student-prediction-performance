@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adarsh Panday's Personal Webpage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav {
+            text-align: center;
+            margin: 20px 0;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #4CAF50;
+            font-weight: bold;
+        }
+        section {
+            margin: 20px;
+        }
+        .container {
+            display: flex;
+        }
+        .content {
+            flex: 3;
+        }
+        .sidebar {
+            flex: 1;
+            padding: 20px;
+            background-color: #e0e0e0;
+        }
+        footer {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        .calculator {
+            margin-top: 20px;
+        }
+        .calculator input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        .calculator button {
+            width: 23%;
+            padding: 10px;
+            font-size: 1.2em;
+            margin: 1%;
+            background-color: rgb(142, 88, 23);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Adarsh Panday</h1>
+        <p>Student of BCA | Aspiring Mobile Software Developer</p>
+    </header>
+    <nav>
+        <a href="#about">About Me</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <div class="container">
+        <div class="content">
+            <section id="about">
+                <h2>About Me</h2>
+                <p>Hi, I'm Adarsh Panday, a 23-year-old student pursuing a Bachelor of Computer Applications (BCA). I have completed an IT O-level course and an ITI course. My goal is to join a major multinational company (MNC) and create innovative mobile software applications.</p>
+            </section>
+            <section id="portfolio">
+                <h2>Portfolio</h2>
+                <p>Here, you can showcase your projects. (You can add more details or links to your projects)</p>
+            </section>
+            <section id="contact">
+                <h2>Contact</h2>
+                <p>You can reach me via email at adarsh.panday@example.com</p>
+                <p>Follow me on <a href="#">LinkedIn</a>, <a href="#">GitHub</a>, and <a href="#">Twitter</a>.</p>
+            </section>
+        </div>
+        <div class="sidebar">
+            <div class="calculator">
+                <h2>Calculator</h2>
+                <input type="text" id="display" readonly>
+                <br>
+                <button onclick="appendNumber(7)">7</button>
+                <button onclick="appendNumber(8)">8</button>
+                <button onclick="appendNumber(9)">9</button>
+                <button onclick="operation('/')">/</button>
+                <br>
+                <button onclick="appendNumber(4)">4</button>
+                <button onclick="appendNumber(5)">5</button>
+                <button onclick="appendNumber(6)">6</button>
+                <button onclick="operation('*')">*</button>
+                <br>
+                <button onclick="appendNumber(1)">1</button>
+                <button onclick="appendNumber(2)">2</button>
+                <button onclick="appendNumber(3)">3</button>
+                <button onclick="operation('-')">-</button>
+                <br>
+                <button onclick="appendNumber(0)">0</button>
+                <button onclick="operation('.')">.</button>
+                <button onclick="calculate()">=</button>
+                <button onclick="operation('+')">+</button>
+                <br>
+                <button onclick="clearDisplay()" style="width: 48%;">C</button>
+                <button onclick="deleteNumber()" style="width: 48%;">DEL</button>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 Adarsh Panday</p>
+    </footer>
+    <script>
+        let display = document.getElementById('display');
+        let operationInProgress = false;
+
+        function appendNumber(number) {
+            if (operationInProgress) {
+                display.value = '';
+                operationInProgress = false;
+            }
+            display.value += number;
+        }
+
+        function operation(op) {
+            display.value += ' ' + op + ' ';
+            operationInProgress = false;
+        }
+
+        function calculate() {
+            try {
+                display.value = eval(display.value.replace(/×/g, '*').replace(/÷/g, '/'));
+            } catch (e) {
+                display.value = 'Error';
+            }
+            operationInProgress = true;
+        }
+
+        function clearDisplay() {
+            display.value = '';
+        }
+
+        function deleteNumber() {
+            display.value = display.value.slice(0, -1);
+        }
+    </script>
+</body>
+</html>
